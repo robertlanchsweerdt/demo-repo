@@ -2,4 +2,6 @@
 
 This is a demonstration on how to use Github
 
-another update
+## sub-heading
+
+Another heading under the first
