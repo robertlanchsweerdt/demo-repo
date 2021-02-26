@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #my_form{
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            height: 20px;
+        }
+
+        input,
+        textarea {
+            border: solid 1px gray;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="" id="my_form">
+        <input type="text" name='name'>
+        <textarea name="saySomething" id="" cols="10" rows="10"></textarea>
+        <span>Field needs to be filled</span>
+    </form>
+
+    <button>Submit</button>
+
+    <script>
+        const button = document.querySelector('button');
+        const inputField = document.querySelector('input');
+
+        button.addEventListener('click', showMe)
+
+        // if(inputField.classList.contains('true')){
+        //     inputField.addEventListener('keydown', clearMe);
+        // }
+
+        // inputField.addEventListener('keydown', clearMe)
+
+        function clearMe(e){
+            console.log(e.target);
+            if(inputField.classList.contains('true')){
+                e.target.removeEventListener('keydown', clearMe);
+                e.target.value='';
+                inputField.classList.remove('true');
+            }
+
+        }
+
+        function showMe(e){
+            e.preventDefault();
+            const msg = document.querySelector('textarea');
+            console.log('form submitted');
+            
+            console.log(document.querySelector('span'));
+            if(document.querySelector('span').textContent !== ''){
+                console.log('there is content')
+            } else {
+                console.log('content missing');
+            }
+
+            inputField.value = 'hello';
+            inputField.addEventListener('keydown', clearMe);
+            inputField.classList.add('true');
+        }
+
+    </script>
+    
+</body>
+</html>
